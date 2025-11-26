@@ -11,20 +11,23 @@ export interface AnalysisResponse {
 }
 
 // Navigation tabs
-export enum ActiveTab {
-  ANALYZE = 'ANALYZE',
-  VOCABULARY = 'VOCABULARY',
-  HISTORY = 'HISTORY',
-  PROFILE = 'PROFILE'
-}
+export const ActiveTab = {
+  ANALYZE: 'ANALYZE',
+  VOCABULARY: 'VOCABULARY',
+  HISTORY: 'HISTORY',
+  PROFILE: 'PROFILE',
+} as const;
 
-// Loading states
-export enum Status {
-  IDLE = 'IDLE',
-  LOADING = 'LOADING',
-  SUCCESS = 'SUCCESS',
-  ERROR = 'ERROR'
-}
+export type ActiveTab = (typeof ActiveTab)[keyof typeof ActiveTab];
+
+export const Status = {
+  IDLE: 'IDLE',
+  LOADING: 'LOADING',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+} as const;
+
+export type Status = (typeof Status)[keyof typeof Status];
 
 // Subject definitions
 export type Subject = 'MATH' | 'PHYSICS' | 'CHEMISTRY' | 'BIOLOGY' | 'ENGLISH';
